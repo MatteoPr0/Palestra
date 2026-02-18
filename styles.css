@@ -75,7 +75,10 @@ body {
 .cta,
 .tab,
 .fab,
-.workout-card {
+.workout-card,
+.mode-option,
+.muscle-trigger,
+.exercise-list button {
   cursor: pointer;
   border: none;
   color: inherit;
@@ -251,6 +254,110 @@ body {
   line-height: 1.5;
 }
 
+.create-view {
+  min-height: min(760px, calc(100vh - 64px));
+  padding: 4px 0 88px;
+}
+
+.create-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.create-header h2 {
+  margin: 0;
+  font-size: 1.95rem;
+  font-weight: 500;
+}
+
+.create-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.create-icon {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.muscle-list {
+  display: grid;
+  gap: 4px;
+}
+
+.muscle-group {
+  border-bottom: 1px solid rgba(104, 135, 186, 0.14);
+}
+
+.muscle-trigger {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  padding: 16px 2px;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.exercise-list {
+  display: none;
+  padding: 0 0 10px 14px;
+}
+
+.muscle-group.open .exercise-list {
+  display: grid;
+  gap: 8px;
+}
+
+.exercise-list button {
+  background: rgba(24, 38, 57, 0.6);
+  border: 1px solid rgba(121, 157, 204, 0.22);
+  border-radius: 12px;
+  color: var(--text);
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.98rem;
+}
+
+.create-footer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(420px, calc(100vw - 12px));
+  bottom: max(0px, env(safe-area-inset-bottom));
+  background: #59d7e7;
+  color: #08353d;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+  z-index: 70;
+}
+
+.mode-option {
+  background: transparent;
+  border-radius: 999px;
+  padding: 6px 8px;
+  font-size: 0.95rem;
+  text-align: left;
+  color: rgba(8, 53, 61, 0.9);
+}
+
+.mode-option.active {
+  font-weight: 700;
+}
+
+.app-shell.create-mode .topbar,
+.app-shell.create-mode .tabbar,
+.app-shell.create-mode .fab {
+  display: none;
+}
+
 .tabbar {
   position: fixed;
   left: 50%;
@@ -331,6 +438,22 @@ body {
 
   .duration {
     grid-column: auto;
+  }
+
+  .create-view {
+    min-height: min(700px, calc(100vh - 70px));
+  }
+
+  .create-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .muscle-trigger {
+    font-size: 1.55rem;
+  }
+
+  .create-footer {
+    width: min(920px, calc(100vw - 30px));
   }
 
   .tabbar {
