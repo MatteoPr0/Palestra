@@ -10,18 +10,17 @@
     <div class="screen-shell">
       <div class="app-shell">
         <header class="topbar glass">
-          <button class="icon-btn" aria-label="Menu">☰</button>
+          <button class="icon-btn" id="back-btn" aria-label="Indietro" hidden>←</button>
+          <button class="icon-btn" id="menu-btn" aria-label="Menu">☰</button>
           <div>
-            <p class="eyebrow">Allenamenti</p>
-            <h1>Palestra Flow</h1>
+            <p class="eyebrow" id="header-eyebrow">Allenamenti</p>
+            <h1 id="header-title">Palestra Flow</h1>
           </div>
           <button class="icon-btn" aria-label="Impostazioni">⚙</button>
         </header>
 
-        <div class="mode-chip" id="device-mode">Modalità: smartphone chiuso</div>
-
-        <main class="main-grid">
-          <section class="main-column">
+        <main>
+          <section class="view active" data-view="registra">
             <section class="hero glass">
               <div>
                 <p class="eyebrow">Oggi</p>
@@ -31,9 +30,147 @@
               <button class="cta">Inizia sessione</button>
             </section>
 
+            <div class="main-grid">
+              <section class="main-column">
+                <section class="section-header">
+                  <h3>Sessioni recenti</h3>
+                  <button class="text-btn">Vedi tutte</button>
+                </section>
+
+                <section class="workout-list">
+                  <button class="workout-card glass workout-open" data-workout="upper" type="button">
+                    <div class="date-pill">
+                      <span>MAR</span>
+                      <strong>18</strong>
+                    </div>
+                    <div class="workout-content">
+                      <h4>Upper Strength</h4>
+                      <p>4x Panca inclinata · 3x Trazioni · 3x Curl</p>
+                    </div>
+                    <span class="duration">71 min</span>
+                  </button>
+
+                  <button class="workout-card glass workout-open" data-workout="lower" type="button">
+                    <div class="date-pill">
+                      <span>DOM</span>
+                      <strong>16</strong>
+                    </div>
+                    <div class="workout-content">
+                      <h4>Lower Day</h4>
+                      <p>4x Squat · 3x Leg curl · 3x Calf raise</p>
+                    </div>
+                    <span class="duration">63 min</span>
+                  </button>
+                </section>
+              </section>
+
+              <aside class="secondary-column">
+                <section class="section-header">
+                  <h3>Impostazioni intelligenti</h3>
+                </section>
+
+                <section class="settings-grid">
+                  <label class="setting-card glass">
+                    <div>
+                      <h4>Timer recupero automatico</h4>
+                      <p class="muted">Parte da solo dopo ogni serie</p>
+                    </div>
+                    <input type="checkbox" checked />
+                  </label>
+
+                  <label class="setting-card glass">
+                    <div>
+                      <h4>Progressive overload</h4>
+                      <p class="muted">Suggerisci +2.5kg al prossimo allenamento</p>
+                    </div>
+                    <input type="checkbox" checked />
+                  </label>
+
+                  <label class="setting-card glass">
+                    <div>
+                      <h4>Modalità focus</h4>
+                      <p class="muted">Interfaccia pulita durante il workout</p>
+                    </div>
+                    <input type="checkbox" />
+                  </label>
+
+                  <article class="quick-card glass">
+                    <h4>Azioni rapide</h4>
+                    <p class="muted">Template Push/Pull/Legs · cronometro round · note workout</p>
+                  </article>
+                </section>
+              </aside>
+            </div>
+          </section>
+
+          <section class="view" data-view="programmi">
             <section class="section-header">
-              <h3>Sessioni recenti</h3>
-              <button class="text-btn">Vedi tutte</button>
+              <h3>Programmi</h3>
+            </section>
+            <div class="stack">
+              <article class="glass list-card">
+                <h4>Push / Pull / Legs</h4>
+                <p class="muted">3 giorni · forza + ipertrofia</p>
+              </article>
+              <article class="glass list-card">
+                <h4>Upper / Lower</h4>
+                <p class="muted">4 giorni · volume bilanciato</p>
+              </article>
+              <article class="glass list-card">
+                <h4>Full Body Express</h4>
+                <p class="muted">2 giorni · quando hai poco tempo</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" data-view="statistiche">
+            <section class="section-header">
+              <h3>Statistiche</h3>
+            </section>
+            <div class="stack">
+              <article class="glass metric-card">
+                <p class="eyebrow">Questo mese</p>
+                <h4>12 allenamenti</h4>
+              </article>
+              <article class="glass metric-card">
+                <p class="eyebrow">Durata media</p>
+                <h4>68 min</h4>
+              </article>
+              <article class="glass metric-card">
+                <p class="eyebrow">Record panca</p>
+                <h4>82.5 kg × 5</h4>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" data-view="workout-detail">
+            <article class="glass detail-card">
+              <p class="eyebrow" id="detail-date">MAR 18</p>
+              <h3 id="detail-title">Upper Strength</h3>
+              <p class="muted" id="detail-duration">Durata: 71 min</p>
+              <ul id="detail-items">
+                <li>4x Panca inclinata</li>
+                <li>3x Trazioni</li>
+                <li>3x Curl</li>
+              </ul>
+              <button class="cta" id="detail-start">Apri scheda</button>
+            </article>
+          </section>
+        </main>
+
+        <nav class="tabbar glass" aria-label="Navigazione principale">
+          <button class="tab active" data-view="registra" type="button">Registra</button>
+          <button class="tab" data-view="programmi" type="button">Programmi</button>
+          <button class="tab" data-view="statistiche" type="button">Statistiche</button>
+        </nav>
+
+        <button class="fab" aria-label="Nuovo allenamento" type="button">＋</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
             </section>
 
             <section class="workout-list">
