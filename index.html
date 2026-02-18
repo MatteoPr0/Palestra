@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="screen-shell">
-      <div class="app-shell">
+      <div class="app-shell" id="app-shell">
         <header class="topbar glass">
           <button class="icon-btn" id="back-btn" aria-label="Indietro" hidden>←</button>
           <button class="icon-btn" id="menu-btn" aria-label="Menu">☰</button>
@@ -156,6 +156,96 @@
               <button class="cta" id="detail-start">Apri scheda</button>
             </article>
           </section>
+
+          <section class="view create-view" data-view="create-workout">
+            <header class="create-header">
+              <button class="icon-btn create-icon" id="create-close" type="button" aria-label="Chiudi">✕</button>
+              <h2>Seleziona esercizio</h2>
+              <div class="create-actions">
+                <button class="icon-btn create-icon" type="button" aria-label="Cerca">⌕</button>
+                <button class="icon-btn create-icon" type="button" aria-label="Nuovo">＋</button>
+              </div>
+            </header>
+
+            <div class="muscle-list" id="muscle-list">
+              <section class="muscle-group" data-group="addominali">
+                <button class="muscle-trigger" type="button">Addominali</button>
+                <div class="exercise-list">
+                  <button type="button">Crunch al cavo</button>
+                  <button type="button">Leg raise</button>
+                  <button type="button">Plank</button>
+                </div>
+              </section>
+
+              <section class="muscle-group" data-group="bicipiti">
+                <button class="muscle-trigger" type="button">Bicipiti</button>
+                <div class="exercise-list">
+                  <button type="button">Curl bilanciere</button>
+                  <button type="button">Curl manubri alternato</button>
+                  <button type="button">Hammer curl</button>
+                </div>
+              </section>
+
+              <section class="muscle-group" data-group="cardio">
+                <button class="muscle-trigger" type="button">Cardio</button>
+                <div class="exercise-list">
+                  <button type="button">Tapis roulant</button>
+                  <button type="button">Bike</button>
+                  <button type="button">Vogatore</button>
+                </div>
+              </section>
+
+              <section class="muscle-group" data-group="dorso">
+                <button class="muscle-trigger" type="button">Dorso</button>
+                <div class="exercise-list">
+                  <button type="button">Lat machine presa neutra</button>
+                  <button type="button">Rematore manubrio</button>
+                  <button type="button">Pulley basso</button>
+                </div>
+              </section>
+
+              <section class="muscle-group" data-group="gambe">
+                <button class="muscle-trigger" type="button">Gambe</button>
+                <div class="exercise-list">
+                  <button type="button">Squat</button>
+                  <button type="button">Leg press</button>
+                  <button type="button">Affondi camminati</button>
+                </div>
+              </section>
+
+              <section class="muscle-group" data-group="petto">
+                <button class="muscle-trigger" type="button">Petto</button>
+                <div class="exercise-list">
+                  <button type="button">Panca piana bilanciere</button>
+                  <button type="button">Panca inclinata manubri</button>
+                  <button type="button">Croci ai cavi</button>
+                </div>
+              </section>
+
+              <section class="muscle-group" data-group="spalle">
+                <button class="muscle-trigger" type="button">Spalle</button>
+                <div class="exercise-list">
+                  <button type="button">Military press</button>
+                  <button type="button">Alzate laterali</button>
+                  <button type="button">Face pull</button>
+                </div>
+              </section>
+
+              <section class="muscle-group" data-group="tricipiti">
+                <button class="muscle-trigger" type="button">Tricipiti</button>
+                <div class="exercise-list">
+                  <button type="button">Pushdown cavo</button>
+                  <button type="button">French press</button>
+                  <button type="button">Dip alle parallele</button>
+                </div>
+              </section>
+            </div>
+
+            <footer class="create-footer">
+              <button class="mode-option active" type="button">◉ Regolare</button>
+              <button class="mode-option" type="button">○ Sblocca superset</button>
+            </footer>
+          </section>
         </main>
 
         <nav class="tabbar glass" aria-label="Navigazione principale">
@@ -164,7 +254,7 @@
           <button class="tab" data-view="statistiche" type="button">Statistiche</button>
         </nav>
 
-        <button class="fab" aria-label="Nuovo allenamento" type="button">＋</button>
+        <button class="fab" id="create-workout-btn" aria-label="Nuovo allenamento" type="button">＋</button>
       </div>
     </div>
 
