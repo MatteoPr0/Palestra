@@ -1,6 +1,9 @@
 const tabs = document.querySelectorAll('.tab');
 const views = document.querySelectorAll('.view');
 const workoutButtons = document.querySelectorAll('.workout-open');
+const muscleTriggers = document.querySelectorAll('.muscle-trigger');
+
+const appShell = document.getElementById('app-shell');
 const backBtn = document.getElementById('back-btn');
 const menuBtn = document.getElementById('menu-btn');
 const headerTitle = document.getElementById('header-title');
@@ -10,6 +13,9 @@ const detailTitle = document.getElementById('detail-title');
 const detailDate = document.getElementById('detail-date');
 const detailDuration = document.getElementById('detail-duration');
 const detailItems = document.getElementById('detail-items');
+
+const createBtn = document.getElementById('create-workout-btn');
+const createCloseBtn = document.getElementById('create-close');
 
 const workoutData = {
   upper: {
@@ -34,12 +40,20 @@ const setActiveView = (viewName) => {
   });
 
   const inDetail = viewName === 'workout-detail';
+  const inCreate = viewName === 'create-workout';
+
+  appShell.classList.toggle('create-mode', inCreate);
   backBtn.hidden = !inDetail;
   menuBtn.classList.toggle('is-hidden', inDetail);
 
   if (inDetail) {
     headerEyebrow.textContent = 'Dettaglio';
     headerTitle.textContent = 'Scheda allenamento';
+    tabs.forEach((tab) => tab.classList.remove('active'));
+    return;
+  }
+
+  if (inCreate) {
     tabs.forEach((tab) => tab.classList.remove('active'));
     return;
   }
@@ -74,6 +88,21 @@ workoutButtons.forEach((button) => {
     loadWorkoutDetail(button.dataset.workout);
     setActiveView('workout-detail');
   });
+});
+
+muscleTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    trigger.parentElement.classList.toggle('open');
+  });
+});
+
+createBtn.addEventListener('click', () => {
+  previousView = [...tabs].find((tab) => tab.classList.contains('active'))?.dataset.view || 'registra';
+  setActiveView('create-workout');
+});
+
+createCloseBtn.addEventListener('click', () => {
+  setActiveView(previousView);
 });
 
 backBtn.addEventListener('click', () => {
