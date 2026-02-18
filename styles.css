@@ -37,6 +37,301 @@ body {
   border: 1px solid rgba(174, 197, 236, 0.25);
   background: linear-gradient(180deg, rgba(6, 12, 22, 0.94), rgba(6, 11, 21, 0.86));
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: calc(14px + env(safe-area-inset-top)) 14px 170px;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass {
+  border: 1px solid var(--stroke);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.12rem;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.icon-btn,
+.text-btn,
+.cta,
+.tab,
+.fab,
+.workout-card {
+  cursor: pointer;
+  border: none;
+  color: inherit;
+}
+
+.icon-btn {
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#back-btn[hidden] {
+  display: none;
+}
+
+#menu-btn.is-hidden {
+  visibility: hidden;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.hero {
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.hero h2 {
+  margin: 6px 0;
+  font-size: 1.1rem;
+}
+
+.cta {
+  padding: 10px 15px;
+  border-radius: 999px;
+  font-weight: 600;
+  background: linear-gradient(120deg, var(--primary), var(--primary-strong));
+  color: #022f40;
+}
+
+.main-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.text-btn {
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.85rem;
+}
+
+.workout-list,
+.settings-grid,
+.stack {
+  display: grid;
+  gap: 10px;
+}
+
+.workout-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  padding: 13px;
+  text-align: left;
+}
+
+.date-pill {
+  min-width: 52px;
+  text-align: center;
+}
+
+.date-pill span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.date-pill strong {
+  font-size: 1.24rem;
+}
+
+.workout-content h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.workout-content p,
+.muted {
+  color: var(--muted);
+  margin: 6px 0 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.duration {
+  color: var(--primary);
+  font-weight: 700;
+  grid-column: 2;
+}
+
+.secondary-column {
+  margin-bottom: 0;
+}
+
+.setting-card,
+.quick-card,
+.list-card,
+.metric-card,
+.detail-card {
+  padding: 13px;
+}
+
+.setting-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.setting-card h4,
+.quick-card h4,
+.list-card h4,
+.metric-card h4,
+.detail-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.setting-card input {
+  accent-color: var(--primary-strong);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.quick-card p,
+.list-card p {
+  margin-top: 8px;
+}
+
+.metric-card h4 {
+  margin-top: 6px;
+}
+
+.detail-card ul {
+  margin: 14px 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.tabbar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(430px, calc(100vw - 20px));
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  z-index: 20;
+}
+
+.tab {
+  border-radius: 13px;
+  padding: 10px 8px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.tab.active {
+  background: rgba(89, 228, 255, 0.12);
+  color: var(--primary);
+}
+
+.fab {
+  position: fixed;
+  right: max(calc((100vw - min(430px, calc(100vw - 20px))) / 2 + 14px), 14px);
+  bottom: calc(80px + env(safe-area-inset-bottom));
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: linear-gradient(140deg, var(--primary), var(--primary-strong));
+  color: #01374a;
+  font-size: 2rem;
+  box-shadow: 0 14px 30px rgba(13, 185, 221, 0.35);
+  z-index: 21;
+}
+
+@media (min-width: 700px) {
+  .app-shell {
+    width: min(920px, calc(100vw - 30px));
+    min-height: min(760px, calc(100vh - 26px));
+    padding-inline: 18px;
+    padding-bottom: 132px;
+  }
+
+  .main-grid {
+    grid-template-columns: 1.25fr 1fr;
+    align-items: start;
+    gap: 14px;
+  }
+
+  .hero {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .workout-card {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  .duration {
+    grid-column: auto;
+  }
+
+  .tabbar {
+    width: min(920px, calc(100vw - 30px));
+  }
+
+  .fab {
+    right: max(calc((100vw - min(920px, calc(100vw - 30px))) / 2 + 20px), 20px);
+    bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+}
+  border: 1px solid rgba(174, 197, 236, 0.25);
+  background: linear-gradient(180deg, rgba(6, 12, 22, 0.94), rgba(6, 11, 21, 0.86));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
   padding: calc(14px + env(safe-area-inset-top)) 14px 92px;
   position: relative;
   overflow: hidden;
